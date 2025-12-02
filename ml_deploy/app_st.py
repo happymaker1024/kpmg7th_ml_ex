@@ -2,9 +2,9 @@ import streamlit as st
 import numpy as np
 import pickle
 import os
-from pathlib import Path
 
-# BASE_DIR = Path(__file__).resolve().parent
+# 현재 파일의 디렉토리 경로 설정
+# ./  : 현재 디렉토리
 base_path = os.path.dirname(__file__)
 
 # 모델 로드 함수
@@ -19,6 +19,7 @@ def load_model():
 model = load_model()
 
 # 클래스별 이미지 경로 설정
+# 윈도우에서만 됨
 # def get_image_path(prediction):
 #     if prediction == 0:
 #         return base_path / "static" / "setosa.jpg"  # setosa 이미지 경로
@@ -26,9 +27,10 @@ model = load_model()
 #         return base_path / "static" / "versicolor.jpg"  # versicolor 이미지 경로
 #     else:
 #         return base_path / "static" / "virginica.png"   # virginica 이미지 
+
+# 모든 OS에서 작동하도록 수정
 def get_image_path(prediction):
     if prediction == 0:
-         
         return os.path.join(base_path, "static", "setosa.jpg")   # setosa 이미지 경로
     elif prediction == 1:
         return os.path.join(base_path, "static", "versicolor.jpg")   # versicolor 이미지 경로
