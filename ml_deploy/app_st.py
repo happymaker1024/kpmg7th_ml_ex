@@ -21,11 +21,11 @@ model = load_model()
 # 클래스별 이미지 경로 설정
 def get_image_path(prediction):
     if prediction == 0:
-        return base_path / "static/setosa.jpg"  # setosa 이미지 경로
+        return base_path / "static" / "setosa.jpg"  # setosa 이미지 경로
     elif prediction == 1:
-        return base_path / "static/versicolor.jpg"  # versicolor 이미지 경로
+        return base_path / "static" / "versicolor.jpg"  # versicolor 이미지 경로
     else:
-        return base_path / "static/virginica.png"   # virginica 이미지 
+        return base_path / "static" / "virginica.png"   # virginica 이미지 
 
 # 메인 실행 코드
 # Streamlit 앱 구성
