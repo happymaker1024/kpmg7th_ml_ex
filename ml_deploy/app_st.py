@@ -21,11 +21,11 @@ model = load_model()
 # 클래스별 이미지 경로 설정
 def get_image_path(prediction):
     if prediction == 0:
-        return "static/setosa.jpg"  # setosa 이미지 경로
+        return base_path / "static/setosa.jpg"  # setosa 이미지 경로
     elif prediction == 1:
-        return "static/versicolor.jpg"  # versicolor 이미지 경로
+        return base_path / "static/versicolor.jpg"  # versicolor 이미지 경로
     else:
-        return "static/virginica.png"   # virginica 이미지 
+        return base_path / "static/virginica.png"   # virginica 이미지 
 
 # 메인 실행 코드
 # Streamlit 앱 구성
@@ -33,7 +33,7 @@ st.title("Iris 품종 예측")
 st.write("꽃받침 길이, 너비, 꽃잎 길이, 너비를 입력하여 품종을 예측해보세요.")
 
 # 이미지 로딩
-img_path = "static/flower1.jpg"
+img_path = base_path /  "static/flower1.jpg"
 st.image(img_path, caption="꽃")
 
 # 사용자 입력 받기
