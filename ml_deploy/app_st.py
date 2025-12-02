@@ -1,16 +1,15 @@
 import streamlit as st
 import numpy as np
 import pickle
-import os
 
-import os
+from pathlib import Path
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = Path(__file__).resolve().parent
 
 # 모델 로드 함수
 @st.cache_resource  # 자원 캐싱 기능 
 def load_model():
-    model_path = os.path.join(BASE_DIR, "iris_model_rfc.pkl")
+    model_path = f"{BASE_DIR}/models/iris_model_rfc.pkl"
     # with open('models/iris_model_rfc.pkl', 'rb') as f:
     with open(model_path, 'rb') as f:
         model = pickle.load(f)
