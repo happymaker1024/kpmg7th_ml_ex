@@ -3,11 +3,14 @@ import numpy as np
 import pickle
 import os
 
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # 모델 로드 함수
 @st.cache_resource  # 자원 캐싱 기능 
 def load_model():
-    base_path = os.path.dirname(__file__)
-    model_path = os.path.join(base_path, "models", "iris_model_rfc.pkl")
+    model_path = os.path.join(BASE_DIR, "iris_model_rfc.pkl")
     # with open('models/iris_model_rfc.pkl', 'rb') as f:
     with open(model_path, 'rb') as f:
         model = pickle.load(f)
